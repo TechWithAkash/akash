@@ -1,113 +1,155 @@
+"use client"
 import Image from "next/image";
-
+import { useState } from 'react';
+import { FaPython, FaChartLine, FaReact, FaNodeJs, FaDatabase, FaCss3Alt, FaLinkedin, FaTwitter, FaGithub, FaKaggle, FaInstagram } from 'react-icons/fa';
+import Head from "next/head";
 export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+  const [currentSection, setCurrentSection] = useState('about');
+
+  const renderContent = () => {
+    switch (currentSection) {
+      case 'about':
+        return (
+          <div className="w-[80%]">
+            <h1 className="text-[#7d807d] py-3">Hello I'm</h1>
+            <h2 className=" text-2xl font-semibold text-[#f44e91] py-3">Akash Vishwakarma</h2>
+            <span className="text-[#7d807d]">As a dedicated Data Science Enthusiast, I'm currently pursuing my degree while furthering my expertise through the Data Science Masters 2.0 program with Pwskills. With a fervent passion for innovation, my proficiency extends to software development🧑‍💻 and embedded systems design, mastering languages such as Python, Java, and JavaScript, alongside frameworks like ReactJS and NodeJS.</span>
+            <h2 className=" text-xl font-semibold text-[#7d807d] py-10 ">Find me on</h2>
+            <div className="social flex gap-4 justify-around items-start  mb-10">
+              <a href="https://www.linkedin.com/in/akash-vishwakarma-42b0b6267/" target="_blank" rel="noopener noreferrer" className="text-[#1c699b] ">
+                <FaLinkedin size={45} />
+              </a>
+              <div className="rounded-full p-2 bg-[#1da1f2] ">
+                <a href="https://x.com/AKASHVISHW64779" target="_blank" rel="noopener noreferrer" className="text-[#ffff] ">
+                  <FaTwitter size={30} />
+                </a>
+              </div>
+              <a href="https://github.com/TechWithAkash" target="_blank" rel="noopener noreferrer" className="text-black ">
+                <FaGithub size={45} />
+              </a>
+              <a href="https://www.kaggle.com/akash9987" target="_blank" rel="noopener noreferrer" className="text-[#20beff] ">
+                <FaKaggle size={45} />
+              </a>
+              <a href="https://www.instagram.com/akashvishwalarma45/" target="_blank" rel="noopener noreferrer" className="text-[#f44e91] ">
+                <FaInstagram size={45} />
+              </a>
+            </div>
+            <div className="btn">
+              <button className="bg-[#f44e91] rounded-3xl text-white font-semibold py-4 px-10 hover:bg-white hover:text-[#f44e91] hover:border-[#f44e91] border-2 " onClick={() => setCurrentSection('contact')}>HIRE ME</button>
+            </div>
+          </div>
+        );
+      case 'projects':
+        return (
+          <div className="w-[80%]">
+            <h2 className=" text-2xl font-semibold text-[#f44e91] py-3">Projects</h2>
+            <span className="text-[#7d807d]">Here you can add content related to your projects.</span>
+          </div>
+        );
+      case 'contact':
+        return (
+          <div className="w-[80%]">
+      <Head>
+        <title>Contact Form</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <div className="container mx-auto  flex flex-col md:flex-row justify-between items-center ">
+        <div className="w-full md:w-1/2 p-6">
+          <h1 className="text-4xl font-bold mb-10">Hello!</h1>
+          <p className="text-gray-700 mb-10">Feel free to reach out to me, for a project/consultation.</p>
+          <p className="text-gray-700 mb-10 mx-10">OR</p>
+          <p className="text-gray-700 ">Send me a mail:</p>
+          <a href="mailto:iamakash652@gmail.com" className="text-blue-600">iamakash652@gmail.com</a>
+        </div>
+
+        <div className="w-full md:w-1/2 p-6">
+          <h2 className="text-2xl font-bold mb-4">Contact Me</h2>
+          <form>
+            <div className="mb-4">
+              <input
+                type="text"
+                placeholder="Name"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+              />
+            </div>
+            <div className="mb-4">
+              <input
+                type="email"
+                placeholder="Email"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+              />
+            </div>
+            <div className="mb-4">
+              <textarea
+                placeholder="Message"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                rows="5"
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              className="w-full p-3 bg-pink-500 text-white rounded-lg hover:bg-pink-600 focus:outline-none"
+            >
+              Submit
+            </button>
+          </form>
         </div>
       </div>
+    </div>
+        );
+      default:
+        return null;
+    }
+  };
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+  return (
+    <>
+      <div className="main flex">
+        {/* SideBar */}
+        <div className="sidebar flex flex-col justify-between items-center w-[25%] min-h-screen bg-[#f3f3f3] gap-8 p-4">
+          <div className="flex flex-col justify-center items-center pt-28">
+            <div className="detail">
+              <Image className="rounded-full" width={200} height={200} alt="profileimage" src="/akash.png" />
+            </div>
+            <div className="flex flex-col justify-center items-center text-center pt-5">
+              <span className="font-bold text-[#1c699b]">Akash Vishwakarma</span>
+              <span className=" text-[#1c699b]">Senior Data Scientist</span>
+            </div>
+            <div className="flex justify-center items-center gap-4 pl-10 pt-10">
+              <ul className="text-[#1c699b] space-y-2">
+                <li className="flex items-center gap-2"><FaPython />Python, Flask</li>
+                <li className="flex items-center gap-2"><FaChartLine />Statistics, Machine Learning</li>
+                <li className="flex items-center gap-2"><FaReact />React, Next JS</li>
+                <li className="flex items-center gap-2"><FaNodeJs />Node JS (Express JS)</li>
+                <li className="flex items-center gap-2"><FaDatabase />MongoDB</li>
+                <li className="flex items-center gap-2"><FaCss3Alt />Tailwind CSS</li>
+              </ul>
+            </div>
+          </div>
+          <div className="text-center">
+            <span>Developed by</span> <span className="font-semibold text-[#1c699b]">Akash Vishwakarma</span>
+          </div>
+        </div>
+
+        {/* Main Content */}
+        <div className="content w-[75%]">
+          {/* Upper Navbar */}
+          <nav className='w-full  flex justify-center gap-5 items-center p-6'>
+            <ul className="flex gap-5">
+              <li className={`hover:text-[#f44e91] font-bold hover:cursor-pointer ${currentSection === 'about' ? 'underline decoration-[#f44e91]' : ''}`} onClick={() => setCurrentSection('about')}>About</li>
+              <li className={`hover:text-[#f44e91] font-bold hover:cursor-pointer ${currentSection === 'projects' ? 'underline decoration-[#f44e91]' : ''}`} onClick={() => setCurrentSection('projects')}>Projects</li>
+              <li className={`hover:text-[#f44e91] font-bold hover:cursor-pointer ${currentSection === 'contact' ? 'underline decoration-[#f44e91]' : ''}`} onClick={() => setCurrentSection('contact')}>Contact</li>
+            </ul>
+          </nav>
+          <div className="h-1 bg-[#f3f3f3]"></div>
+
+          {/* Main Body */}
+          <div className="main flex justify-center items-center p-20">
+            {renderContent()}
+          </div>
+        </div>
       </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </>
   );
 }
