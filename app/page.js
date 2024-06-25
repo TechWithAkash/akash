@@ -45,7 +45,7 @@ export default function Home() {
         return (
           <div className="w-[80%]">
             <h2 className="text-2xl font-semibold text-[#f44e91] py-3">Projects</h2>
-            <span className="text-[#7d807d]">Here you can add content related to your projects.</span>
+            <span className="text-[#7d807d]">Hey , Now the projects is in Developing Phase ☺️.</span>
           </div>
         );
       case 'contact':
@@ -70,26 +70,26 @@ export default function Home() {
                     <input
                       type="text"
                       placeholder="Name"
-                      className="md:w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                      className="bg-[#f3f3f3] md:w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
                     />
                   </div>
                   <div className="mb-4">
                     <input
                       type="email"
                       placeholder="Email"
-                      className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                      className="bg-[#f3f3f3] w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
                     />
                   </div>
                   <div className="mb-4">
                     <textarea
                       placeholder="Message"
-                      className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                      className= "bg-[#f3f3f3] w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
                       rows="5"
                     ></textarea>
                   </div>
                   <button
                     type="submit"
-                    className="w-full p-3 bg-pink-500 text-white rounded-lg hover:bg-pink-600 focus:outline-none"
+                    className="w-full p-3 bg-[#f44e91] rounded-3xl text-white font-semibold py-4 px-10 hover:bg-white hover:text-[#f44e91] hover:border-[#f44e91] border-2 focus:outline-none"
                   >
                     Submit
                   </button>
@@ -137,9 +137,9 @@ export default function Home() {
         {/* Main Content */}
         <div className="content w-full md:w-[80%] ">
           {/* Upper Navbar */}
-          <nav className='w-full flex justify-between items-center p-6'>
+          <nav className='w-full flex justify-center items-center p-6'>
             <FaBars className="md:hidden cursor-pointer" size={30} onClick={() => setSidebarOpen(true)} />
-            <ul className="flex justify-center items-center gap-10">
+            <ul className="flex justify-center items-center  gap-10">
               <li className={`hover:text-[#f44e91]  font-bold hover:cursor-pointer  ${currentSection === 'about' ? 'hover:underline decoration-[#f44e91]' : ''}`} onClick={() => setCurrentSection('about')}>About</li>
               <li className={`hover:text-[#f44e91] font-bold hover:cursor-pointer ${currentSection === 'projects' ? 'hover:underline  decoration-[#f44e91]' : ''}`} onClick={() => setCurrentSection('projects')}>Projects</li>
               <li className={`hover:text-[#f44e91] mr-4 font-bold hover:cursor-pointer ${currentSection === 'contact' ? 'hover:underline decoration-[#f44e91]' : ''}`} onClick={() => setCurrentSection('contact')}>Contact</li>
