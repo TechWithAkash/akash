@@ -10,7 +10,7 @@ export default function Home() {
     switch (currentSection) {
       case 'about':
         return (
-          <div className="w-[80%]">
+          <div className="md:w-[80%]">
             <h1 className="text-[#7d807d] py-3">Hello I'm</h1>
             <h2 className=" text-2xl font-semibold text-[#f44e91] py-3">Akash Vishwakarma</h2>
             <span className="text-[#7d807d]">As a dedicated Data Science Enthusiast, I'm currently pursuing my degree while furthering my expertise through the Data Science Masters 2.0 program with Pwskills. With a fervent passion for innovation, my proficiency extends to software development🧑‍💻 and embedded systems design, mastering languages such as Python, Java, and JavaScript, alongside frameworks like ReactJS and NodeJS.</span>
@@ -54,23 +54,23 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="container mx-auto  flex flex-col md:flex-row justify-between items-center ">
-        <div className="w-full md:w-1/2 p-6">
-          <h1 className="text-4xl font-bold mb-10">Hello!</h1>
-          <p className="text-gray-700 mb-10">Feel free to reach out to me, for a project/consultation.</p>
-          <p className="text-gray-700 mb-10 mx-10">OR</p>
-          <p className="text-gray-700 ">Send me a mail:</p>
-          <a href="mailto:iamakash652@gmail.com" className="text-blue-600">iamakash652@gmail.com</a>
+      <div className="container md:mx-auto  flex flex-col md:flex-row justify-between items-center ">
+        <div className=" md:w-1/2 md:p-6 p-0">
+          <h1 className="text-4xl font-bold mb-10 text-center md:text-start">Hello!</h1>
+          <p className="text-gray-700 mb-10 text-center md:text-start">Feel free to reach out to me, for a project/consultation.</p>
+          <p className="text-gray-700 mb-10 mx-10 text-center ">OR</p>
+          <p className="text-gray-700 text-center md:text-start">Send me a mail:</p>
+          <a href="mailto:iamakash652@gmail.com" className="text-blue-600 md:text-start text-center">iamakash652@gmail.com</a>
         </div>
 
-        <div className="w-full md:w-1/2 p-6">
-          <h2 className="text-2xl font-bold mb-4">Contact Me</h2>
+        <div className="md:w-full md:w-1/2 md:p-6 p-0 my-8">
+          <h2 className="text-3xl font-bold mb-6 md:mb-8 text-center md:text-start" >Contact Me</h2>
           <form>
             <div className="mb-4">
               <input
                 type="text"
                 placeholder="Name"
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                className="md:w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
               />
             </div>
             <div className="mb-4">
@@ -105,9 +105,9 @@ export default function Home() {
 
   return (
     <>
-      <div className="main flex">
+      <div className="main flex ">
         {/* SideBar */}
-        <div className="sidebar flex flex-col justify-between items-center w-[25%] min-h-screen bg-[#f3f3f3] gap-8 p-4">
+        <div className="sidebar md:flex hidden md:block flex-col justify-between items-center w-[25%] min-h-screen bg-[#f3f3f3] gap-8 p-4">
           <div className="flex flex-col justify-center items-center pt-28">
             <div className="detail">
               <Image className="rounded-full" width={200} height={200} alt="profileimage" src="/akash.png" />
@@ -133,9 +133,9 @@ export default function Home() {
         </div>
 
         {/* Main Content */}
-        <div className="content w-[75%]">
+        <div className="content md:w-[80%]">
           {/* Upper Navbar */}
-          <nav className='w-full  flex justify-center gap-5 items-center p-6'>
+          <nav className='md:w-full  flex justify-center gap-5 items-center p-6'>
             <ul className="flex gap-5">
               <li className={`hover:text-[#f44e91] font-bold hover:cursor-pointer ${currentSection === 'about' ? 'underline decoration-[#f44e91]' : ''}`} onClick={() => setCurrentSection('about')}>About</li>
               <li className={`hover:text-[#f44e91] font-bold hover:cursor-pointer ${currentSection === 'projects' ? 'underline decoration-[#f44e91]' : ''}`} onClick={() => setCurrentSection('projects')}>Projects</li>
