@@ -12,7 +12,7 @@ export default function Home() {
     switch (currentSection) {
       case 'about':
         return (
-          <div className="md:w-[80%]">
+          <div className="md:w-[80%] w-full">
             <h1 className="text-[#7d807d] md:py-3">Hello I'm</h1>
             <h2 className="text-2xl font-semibold text-[#f44e91] py-3">Akash Vishwakarma</h2>
             <span className="text-[#7d807d]">As a dedicated Data Science Enthusiast, I'm currently pursuing my degree while furthering my expertise through the Data Science Masters 2.0 program with Pwskills. With a fervent passion for innovation, my proficiency extends to software development🧑‍💻 and embedded systems design, mastering languages such as Python, Java, and JavaScript, alongside frameworks like ReactJS and NodeJS.</span>
@@ -131,14 +131,20 @@ export default function Home() {
           <div className="text-center pt-44">
             <span>Developed by</span> <span className="font-semibold text-[#1c699b]">Akash Vishwakarma</span>
           </div>
-          <FaTimes className="absolute top-5 left-5 md:hidden cursor-pointer" size={30} onClick={() => setSidebarOpen(false)} />
+          <div className="flex justify-start items-start">
+          <FaTimes className="absolute top-5  left-5 md:hidden cursor-pointer" size={30} onClick={() => setSidebarOpen(false)} />
+          </div>
         </div>
 
         {/* Main Content */}
-        <div className="content w-full md:w-[80%] ">
+        <div className=" content w-full md:w-[80%] ">
           {/* Upper Navbar */}
-          <nav className='w-full flex justify-center items-center p-6'>
-            <FaBars className="md:hidden cursor-pointer" size={30} onClick={() => setSidebarOpen(true)} />
+<div className="m-6">
+
+</div>
+          <nav className='w-full flex justify-center items-center p-6 gap-20'>
+          <FaBars className="md:hidden   cursor-pointer" size={30} onClick={() => setSidebarOpen(true)} />
+
             <ul className="flex justify-center items-center  gap-10">
               <li className={`hover:text-[#f44e91]  font-bold hover:cursor-pointer  ${currentSection === 'about' ? 'hover:underline decoration-[#f44e91]' : ''}`} onClick={() => setCurrentSection('about')}>About</li>
               <li className={`hover:text-[#f44e91] font-bold hover:cursor-pointer ${currentSection === 'projects' ? 'hover:underline  decoration-[#f44e91]' : ''}`} onClick={() => setCurrentSection('projects')}>Projects</li>

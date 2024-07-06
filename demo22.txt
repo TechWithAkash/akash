@@ -1,0 +1,197 @@
+"use client"
+import Image from "next/image";
+import { useState, useEffect } from 'react';
+import { FaPython, FaChartLine, FaReact, FaNodeJs, FaDatabase, FaCss3Alt, FaLinkedin, FaTwitter, FaGithub, FaKaggle, FaInstagram, FaBars, FaTimes } from 'react-icons/fa';
+import Head from "next/head";
+
+// New color scheme
+const colors = {
+  primary: "#6366F1", // Indigo
+  secondary: "#EC4899", // Pink
+  text: "#1F2937", // Dark Gray
+  lightBg: "#F3F4F6", // Light Gray
+  darkBg: "#111827", // Very Dark Gray
+};
+
+export default function Home() {
+  const [currentSection, setCurrentSection] = useState('about');
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const renderContent = () => {
+    switch (currentSection) {
+      case 'about':
+        return (
+          <div className="w-full lg:w-4/5 xl:w-3/4 space-y-6 animate-fadeIn">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl text-gray-600 font-light">Hello, I'm</h1>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold" style={{ color: colors.secondary }}>Akash Vishwakarma</h2>
+            <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
+              A dedicated Data Science Enthusiast, currently pursuing my degree while advancing my skills through the Data Science Masters 2.0 program with Pwskills. Passionate about innovation, I excel in software development🧑‍💻 and embedded systems design, mastering Python, Java, JavaScript, ReactJS, and NodeJS.
+            </p>
+            <h3 className="text-2xl md:text-3xl font-semibold text-gray-600 pt-8">Find me on</h3>
+            <div className="flex flex-wrap gap-6 justify-start items-center">
+              <SocialIcon href="https://www.linkedin.com/in/akash-vishwakarma-42b0b6267/" icon={FaLinkedin} color={colors.primary} />
+              <SocialIcon href="https://x.com/AKASHVISHW64779" icon={FaTwitter} color={colors.primary} bgColor={true} />
+              <SocialIcon href="https://github.com/TechWithAkash" icon={FaGithub} color={colors.darkBg} />
+              <SocialIcon href="https://www.kaggle.com/akash9987" icon={FaKaggle} color={colors.primary} />
+              <SocialIcon href="https://www.instagram.com/akashvishwalarma45/" icon={FaInstagram} color={colors.secondary} />
+            </div>
+            <button 
+              className="mt-8 text-white font-bold py-3 px-8 rounded-full transition duration-300 ease-in-out transform hover:scale-105"
+              style={{ backgroundColor: colors.secondary }}
+              onClick={() => setCurrentSection('contact')}
+            >
+              HIRE ME
+            </button>
+          </div>
+        );
+      case 'projects':
+        return (
+          <div className="w-full lg:w-4/5 xl:w-3/4 animate-fadeIn">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6" style={{ color: colors.secondary }}>Projects</h2>
+            <p className="text-xl text-gray-700">Projects are currently in the development phase. Stay tuned for updates! 😊</p>
+          </div>
+        );
+      case 'contact':
+        return (
+          <div className="w-full lg:w-4/5 xl:w-3/4 animate-fadeIn">
+            <Head>
+              <title>Contact Akash Vishwakarma</title>
+              <link rel="icon" href="/favicon.ico" />
+            </Head>
+            <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center space-y-10 lg:space-y-0 lg:space-x-10">
+              <div className="w-full lg:w-1/2 space-y-6">
+                <h1 className="text-4xl md:text-5xl font-bold" style={{ color: colors.secondary }}>Let's Connect!</h1>
+                <p className="text-xl text-gray-700">Feel free to reach out for projects, consultations, or just to say hi!</p>
+                <div className="flex items-center justify-center lg:justify-start space-x-4">
+                  <span className="text-gray-500">OR</span>
+                  <a href="mailto:iamakash652@gmail.com" className="hover:underline text-lg" style={{ color: colors.primary }}>iamakash652@gmail.com</a>
+                </div>
+              </div>
+              <form className="w-full lg:w-1/2 space-y-6">
+                <input
+                  type="text"
+                  placeholder="Name"
+                  className="w-full p-3 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 transition duration-300"
+                  style={{ focusRing: colors.secondary }}
+                />
+                <input
+                  type="email"
+                  placeholder="Email"
+                  className="w-full p-3 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 transition duration-300"
+                  style={{ focusRing: colors.secondary }}
+                />
+                <textarea
+                  placeholder="Message"
+                  className="w-full p-3 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 transition duration-300"
+                  style={{ focusRing: colors.secondary }}
+                  rows="5"
+                ></textarea>
+                <button
+                  type="submit"
+                  className="w-full p-3 text-white font-bold rounded-lg transition duration-300 ease-in-out transform hover:scale-105"
+                  style={{ backgroundColor: colors.secondary }}
+                >
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <div className="flex flex-col lg:flex-row min-h-screen bg-white">
+      {/* Sidebar */}
+      <aside className={`fixed inset-y-0 left-0 z-50 w-64 lg:w-1/4 transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:relative lg:translate-x-0 transition-transform duration-300 ease-in-out overflow-y-auto`}
+        style={{ backgroundColor: colors.lightBg }}>
+        <div className="flex flex-col h-full p-6 space-y-8">
+          <div className="flex justify-end lg:hidden">
+            <FaTimes className="cursor-pointer text-gray-600 hover:text-[#f44e91]" size={24} onClick={() => setSidebarOpen(false)} />
+          </div>
+          <div className="flex flex-col items-center space-y-4">
+            <Image className="rounded-full border-4" width={150} height={150} alt="Akash Vishwakarma" src="/akash.png" 
+              style={{ borderColor: colors.secondary }}/>
+            <div className="text-center">
+              <h2 className="font-bold text-xl" style={{ color: colors.primary }}>Akash Vishwakarma</h2>
+              <p className="text-gray-600">Senior Data Scientist</p>
+            </div>
+          </div>
+          <ul className="space-y-2" style={{ color: colors.primary }}>
+            <SkillItem icon={FaPython} text="Python, Flask" />
+            <SkillItem icon={FaChartLine} text="Statistics, Machine Learning" />
+            <SkillItem icon={FaReact} text="React, Next JS" />
+            <SkillItem icon={FaNodeJs} text="Node JS (Express JS)" />
+            <SkillItem icon={FaDatabase} text="MongoDB" />
+            <SkillItem icon={FaCss3Alt} text="Tailwind CSS" />
+          </ul>
+          <div className="mt-auto text-center text-sm text-gray-500">
+            <p>Developed by</p>
+            <p className="font-semibold" style={{ color: colors.primary }}>Akash Vishwakarma</p>
+          </div>
+        </div>
+      </aside>
+
+      {/* Main Content */}
+      <main className="flex-1 flex flex-col">
+        <nav className="bg-white shadow-sm">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between h-16">
+              <div className="flex">
+                <div className="flex-shrink-0 flex items-center lg:hidden">
+                  <FaBars className="h-6 w-6 cursor-pointer text-gray-600 hover:text-[#f44e91]" onClick={() => setSidebarOpen(true)} />
+                </div>
+              </div>
+              <div className="hidden lg:ml-6 lg:flex lg:space-x-8">
+                <NavItem text="About" section="about" currentSection={currentSection} setCurrentSection={setCurrentSection} />
+                <NavItem text="Projects" section="projects" currentSection={currentSection} setCurrentSection={setCurrentSection} />
+                <NavItem text="Contact" section="contact" currentSection={currentSection} setCurrentSection={setCurrentSection} />
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <div className="flex-1 overflow-y-auto">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            {renderContent()}
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+}
+
+const NavItem = ({ text, section, currentSection, setCurrentSection }) => (
+  <button
+    className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5 focus:outline-none transition duration-150 ease-in-out ${
+      currentSection === section
+        ? 'border-[#f44e91] text-gray-900'
+        : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+    }`}
+    onClick={() => setCurrentSection(section)}
+    style={{ borderColor: currentSection === section ? colors.secondary : 'transparent' }}
+  >
+    {text}
+  </button>
+);
+
+const SkillItem = ({ icon: Icon, text }) => (
+  <li className="flex items-center space-x-2">
+    <Icon className="flex-shrink-0" />
+    <span>{text}</span>
+  </li>
+);
+
+const SocialIcon = ({ href, icon: Icon, color, bgColor }) => (
+  
+   <a href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    className={`transform transition duration-300 hover:scale-110 ${bgColor ? 'p-2 rounded-full' : ''}`}
+    style={{ backgroundColor: bgColor ? color : 'transparent' }}
+  >
+    <Icon size={bgColor ? 24 : 36} color={bgColor ? 'white' : color} />
+  </a>
+);
