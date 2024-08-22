@@ -9,6 +9,7 @@ export default function Home() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const renderContent = () => {
+    
     switch (currentSection) {
       case 'about':
         return (
