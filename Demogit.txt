@@ -1,0 +1,15 @@
+
+-- Steps to Create a new Branch in Github
+1)  git branch developer_akash
+2)  Command to use the created branch :
+ "git checkout developer_akash"
+
+3) and after make an changes to the or developement i want to first commit to the "developer_akash" branch
+    and ffrom the to the master branch i.e "main" branch
+
+    a)first commit to the "developer_akash" branch
+    commit message ="git commit -m "These is the new story working as a developer_akash""
+    b)secondly switch to "main" branch
+    command = " git checkout main"
+    c)merge the "developer_akash" branch to the main branch
+    command = "git merge developer_akash"
