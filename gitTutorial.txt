@@ -9,7 +9,7 @@
 
     a)first commit to the "developer_akash" branch
     commit message ="git commit -m "These is the new story working as a developer_akash""
-    b)secondly switch to "main" branch
+    b)secondly checkout to "main" branch
 
-    
+
     
